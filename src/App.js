@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Button from "./Components/Button";
 import GithubUser from "./Components/Github";
+import Game from "./Components/PlayNine";
 
 export class App extends React.Component {
   state = {
@@ -15,7 +16,8 @@ export class App extends React.Component {
   };
 
   render() {
-    if (document.location.pathname === "/") {
+    let pathName = document.location.pathname;
+    if (pathName === "/") {
       return (
         <div>
           <Button incrementValue={1} onClickFunction={this.incrementCounter} />
@@ -24,10 +26,16 @@ export class App extends React.Component {
           <Result counter={this.state.counter} />
         </div>
       );
-    } else if (document.location.pathname === "/github") {
+    } else if (pathName === "/github") {
       return (
         <div>
           <GithubUser />
+        </div>
+      );
+    } else if (pathName === "/play-nine") {
+      return (
+        <div>
+          <Game />
         </div>
       );
     } else {
